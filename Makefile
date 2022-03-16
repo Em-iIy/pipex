@@ -12,6 +12,7 @@ BLUE = $(ESC)[0;94m$(BOLD)
 FILES_SRCS =	pipex.c \
 				libft_utils.c \
 				libft_split_utils.c \
+				error_exit.c \
 
 FILES_OBJS = $(FILES_SRCS:.c=.o)
 
