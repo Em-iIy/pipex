@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:23:47 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/16 13:10:55 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/16 13:33:31 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ typedef struct s_input
 void	error_exit(int code);
 
 // ------------------------------Parsing
+t_input	parse_input(int argc, char **argv);
+
 // ------------------------------Libft utils
 size_t	ft_strlen(const char *s);
 void	*ft_calloc(int count, size_t size);
