@@ -10,6 +10,7 @@ BLUE = $(ESC)[0;94m$(BOLD)
 
 # ---------------------------------------Files
 FILES_SRCS =	pipex.c \
+				parsing.c \
 				libft_utils.c \
 				libft_split_utils.c \
 				error_exit.c \
