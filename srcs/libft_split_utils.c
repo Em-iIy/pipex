@@ -6,11 +6,11 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:35:32 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/16 10:44:10 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/16 13:09:05 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <stdlib.h>
 #include "pipex.h"
 
 static char	*ft_strdup(const char *s1)
@@ -76,6 +76,7 @@ static char	**free_all(char **ret)
 		free(ret[i]);
 		i++;
 	}
+	error_exit(MALLOC_FAIL);
 	return (0);
 }
 
