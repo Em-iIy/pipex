@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:35:32 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/16 13:09:05 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/16 14:10:37 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static int	ft_str_count(const char *s, char c)
 	return (str_count);
 }
 
-static char	**free_all(char **ret)
+char	**free_all(char **ret)
 {
 	int	i;
 
