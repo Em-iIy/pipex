@@ -10,6 +10,8 @@ BLUE = $(ESC)[0;94m$(BOLD)
 
 # ---------------------------------------Files
 FILES_SRCS =	pipex.c \
+				libft_utils.c \
+				libft_split_utils.c \
 
 FILES_OBJS = $(FILES_SRCS:.c=.o)
 
@@ -34,5 +36,23 @@ INC = -Iinc
 all: $(NAME)
 
 $(NAME): $(DIR_OBJS) $(OBJS)
-	$(CC) $(CFLAGS) $(INC) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(INC) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)Pipex made$(NORMAL)"
+
+$(DIR_OBJS)%.o: %.c
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
+
+#------------------------------Directories
+$(DIR_OBJS):
+	@mkdir -p $@
+
+#----------------------------------------Cleaning
+clean:
+	@rm -f $(OBJS)
+
+fclean: clean
+	@rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
