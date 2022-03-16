@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:08:16 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/16 11:52:22 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/16 12:57:44 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,16 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	}
 	ret = str1 - str2;
 	return (ret);
+}
+
+char	*ft_strchr(const char *str, int c)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != (char)c && str[i])
+		i++;
+	if (str[i] == (char)c)
+		return ((char *)&str[i]);
+	return (0);
 }
