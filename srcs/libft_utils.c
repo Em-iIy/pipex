@@ -6,11 +6,12 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:08:16 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/16 12:57:44 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/17 13:57:10 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "pipex.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -30,7 +31,7 @@ void	*ft_calloc(int count, size_t size)
 	i = 0;
 	ret = (char *)malloc(size * count);
 	if (!ret)
-		return (NULL);
+		error_exit("Malloc");
 	while (i < count * size)
 	{
 		ret[i] = 0;
@@ -48,8 +49,6 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	i = 0;
 	j = 0;
 	ret = (char *)ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, 1);
-	if (!ret)
-		return (NULL);
 	while (s1[i])
 	{
 		ret[i] = s1[i];
