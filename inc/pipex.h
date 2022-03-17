@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:23:47 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/16 14:10:46 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/17 15:53:12 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 # include <stdlib.h>
 
 // ----------------------------------------Enums
-enum e_error
-{
-	MALLOC_FAIL = 1,
-	INVALID_ARGC,
-	INVALID_FILES
-};
 
 // ----------------------------------------Structs
 typedef struct s_input
@@ -32,13 +26,12 @@ typedef struct s_input
 	char	*cmd2;
 	char	**cmd2_args;
 	char	**path;
-	int		f1;
-	int		f2;
+	int		fd[2];
 }	t_input;
 
 // ----------------------------------------Prototypes
 // ------------------------------Error exit
-void	error_exit(int code);
+void	error_exit(const char *msg);
 
 // ------------------------------Parsing
 t_input	parse_input(int argc, char **argv, char **envp);
