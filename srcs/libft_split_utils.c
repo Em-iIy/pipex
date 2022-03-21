@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:35:32 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/17 13:57:27 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/21 16:40:17 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ char	**free_all(char **ret)
 		free(ret[i]);
 		i++;
 	}
-	error_exit("Malloc");
-	return (0);
+	free(ret);
+	return (NULL);
 }
 
 char	**ft_split(const char *s, char c)
