@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:23:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/22 14:45:24 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/22 15:01:43 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int argc, char **argv, char **envp)
 		write(2, "Error, invalid amount of arguments\n", 35);
 		exit(EXIT_FAILURE);
 	}
-	input = parse_input(argc, argv, envp);
+	input = parse_input(argv, envp);
 	if (pipe(pipe_fd) < 0)
 		error_exit("pipe");
 	pipex(input, pipe_fd, argv, envp);

@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 12:10:54 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/22 14:45:41 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/22 15:01:27 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static char	*check_cmd(char	*cmd, char	**path)
 	return (NULL);
 }
 
-t_input	parse_input(int argc, char **argv, char **envp)
+t_input	parse_input(char **argv, char **envp)
 {
 	t_input	ret;
 	char	**path;

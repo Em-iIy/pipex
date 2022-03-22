@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:23:47 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/22 14:47:28 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/22 15:01:35 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	cmd_error_exit(const char *cmd);
 void	error_exit(const char *msg);
 
 // ------------------------------Parsing
-t_input	parse_input(int argc, char **argv, char **envp);
+t_input	parse_input(char **argv, char **envp);
 
 // ------------------------------Children
 void	child_one(char *file, t_input input, int pipe_fd[2], char **envp);

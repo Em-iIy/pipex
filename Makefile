@@ -31,16 +31,19 @@ OBJS = $(FILES_OBJS:%=$(DIR_OBJS)%)
 
 #----------------------------------------Flags
 CC = gcc
-# CFLAGS = -Wall -Wextra -Werror
-CFLAGS += -g
+CFLAGS = -Wall -Wextra -Werror
 INC = -Iinc
+
+#------------------------------Debug
+# CFLAGS += -g
+# CFLAGS += -fsanitize=address
 
 #----------------------------------------Making
 all: $(NAME)
 
 $(NAME): $(DIR_OBJS) $(OBJS)
 	@$(CC) $(CFLAGS) $(INC) $(OBJS) -o $(NAME)
-	@echo "$(GREEN)Pipex made$(NORMAL)"
+	@echo "$(GREEN)$(NAME) made$(NORMAL)"
 
 $(DIR_OBJS)%.o: %.c
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
