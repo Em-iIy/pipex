@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:23:47 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/22 12:31:16 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:47:28 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_input
 // ----------------------------------------Prototypes
 // ------------------------------Error exit
 void	cmd_error_exit(const char *cmd);
-void	error_exit(const char *msg, int code);
+void	error_exit(const char *msg);
 
 // ------------------------------Parsing
 t_input	parse_input(int argc, char **argv, char **envp);
@@ -46,7 +46,6 @@ char	*ft_strjoin(const char *s1, const char *s2);
 char	**ft_split(const char *s, char c);
 char	**free_all(char **ret);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_strchr(const char *str, int c);
 char	*ft_strdup(const char *s1);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 12:10:54 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/22 12:35:26 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:45:41 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char	*check_cmd(char	*cmd, char	**path)
 
 	i = 0;
 	if (!path)
-		error_exit("enviroment", 0);
+		error_exit("environment");
 	if (access(cmd, X_OK) == 0)
 		return (ft_strdup(cmd));
 	while (path[i])

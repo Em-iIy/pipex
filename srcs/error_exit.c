@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 12:28:47 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/22 12:18:11 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:47:20 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ void	cmd_error_exit(const char *cmd)
 	exit(127);
 }
 
-void	error_exit(const char *msg, int code)
+void	error_exit(const char *msg)
 {
 	perror(msg);
-	if (code == 0)
-		exit(errno);
-	exit(EXIT_FAILURE);
+	exit(errno);
 }

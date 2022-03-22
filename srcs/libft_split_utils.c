@@ -6,12 +6,12 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:35:32 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/22 11:46:04 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/22 14:46:20 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "pipex.h"
+#include <stdlib.h>
 
 char	*ft_strdup(const char *s1)
 {
@@ -21,7 +21,7 @@ char	*ft_strdup(const char *s1)
 	str_size = ft_strlen(s1);
 	ret = (char *)malloc(str_size + 1);
 	if (!ret)
-		error_exit("Malloc", 0);
+		error_exit("malloc");
 	ret[str_size] = (char) s1[str_size];
 	while (str_size--)
 		ret[str_size] = (char) s1[str_size];
@@ -40,7 +40,7 @@ static char	*ft_substr(const char *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	ret = (char *)malloc((len + 1) * sizeof(char));
 	if (!ret)
-		error_exit("Malloc", 0);
+		error_exit("malloc");
 	while (i < len && s[start + i])
 	{
 		ret[i] = s[start + i];
@@ -91,7 +91,7 @@ char	**ft_split(const char *s, char c)
 	str_count = ft_str_count(s, c);
 	ret = (char **)malloc((str_count + 1) * sizeof(char *));
 	if (!ret)
-		error_exit("Malloc", 0);
+		error_exit("malloc");
 	while (words < str_count)
 	{
 		i = 0;
