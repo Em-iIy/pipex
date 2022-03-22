@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:23:47 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/22 12:16:28 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/22 12:31:16 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ typedef struct s_input
 	char	**cmd1_args;
 	char	*cmd2;
 	char	**cmd2_args;
-	int		fd[2];
 }	t_input;
 
 // ----------------------------------------Prototypes
@@ -37,8 +36,8 @@ void	error_exit(const char *msg, int code);
 t_input	parse_input(int argc, char **argv, char **envp);
 
 // ------------------------------Children
-void	child_one(t_input input, int pipe_fd[2], char **envp);
-void	child_two(t_input input, int pipe_fd[2], char **envp);
+void	child_one(char *file, t_input input, int pipe_fd[2], char **envp);
+void	child_two(char *file, t_input input, int pipe_fd[2], char **envp);
 
 // ------------------------------Libft utils
 size_t	ft_strlen(const char *s);

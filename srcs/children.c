@@ -6,18 +6,24 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:48:45 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/22 12:17:23 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/22 12:34:58 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #include <unistd.h>
+#include <fcntl.h>
 
-void	child_one(t_input input, int pipe_fd[2], char **envp)
+void	child_one(char *file, t_input input, int pipe_fd[2], char **envp)
 {
+	int	fd;
+
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		error_exit(file, 0);
 	if (!input.cmd1)
 		cmd_error_exit(input.cmd1_args[0]);
-	if (dup2(input.fd[0], STDIN_FILENO) == -1)
+	if (dup2(fd, STDIN_FILENO) == -1)
 		error_exit("Dup2", 0);
 	if (dup2(pipe_fd[1], STDOUT_FILENO) == -1)
 		error_exit("Dup2", 0);
@@ -26,11 +32,16 @@ void	child_one(t_input input, int pipe_fd[2], char **envp)
 		error_exit("execve", 0);
 }
 
-void	child_two(t_input input, int pipe_fd[2], char **envp)
+void	child_two(char *file, t_input input, int pipe_fd[2], char **envp)
 {
+	int	fd;
+
+	fd = open(file, O_CREAT | O_RDWR | O_TRUNC, 0644);
+	if (fd < 0)
+		error_exit(file, 0);
 	if (!input.cmd2)
 		cmd_error_exit(input.cmd2_args[0]);
-	if (dup2(input.fd[1], STDOUT_FILENO) == -1)
+	if (dup2(fd, STDOUT_FILENO) == -1)
 		error_exit("Dup2", 0);
 	if (dup2(pipe_fd[0], STDIN_FILENO) == -1)
 		error_exit("Dup2", 0);
