@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 12:10:54 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/21 18:09:02 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/22 12:22:06 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include <errno.h>
 
 static void	open_files(char **argv, t_input *input)
 {
@@ -24,7 +25,7 @@ static void	open_files(char **argv, t_input *input)
 	if (input->fd[1] < 0)
 		perror(argv[4]);
 	if (input->fd[0] < 0 || input->fd[1] < 0)
-		exit(EXIT_FAILURE);
+		exit(errno);
 }
 
 static char	*check_cmd(char	*cmd, char	**path)
@@ -34,6 +35,10 @@ static char	*check_cmd(char	*cmd, char	**path)
 	int		i;
 
 	i = 0;
+	if (!path)
+		error_exit("enviroment", 0);
+	if (access(cmd, X_OK) == 0)
+		return (ft_strdup(cmd));
 	while (path[i])
 	{
 		temp = ft_strjoin(path[i], "/");

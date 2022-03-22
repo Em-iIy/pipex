@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 10:08:16 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/17 13:57:10 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/22 11:46:34 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*ft_calloc(int count, size_t size)
 	i = 0;
 	ret = (char *)malloc(size * count);
 	if (!ret)
-		error_exit("Malloc");
+		error_exit("Malloc", 0);
 	while (i < count * size)
 	{
 		ret[i] = 0;

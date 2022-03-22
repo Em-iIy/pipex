@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:23:56 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/21 17:37:55 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/22 11:47:03 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ static void	pipex(t_input input, int pipe_fd[2], char **envp)
 
 	child1 = fork();
 	if (child1 < 0)
-		error_exit("Fork");
+		error_exit("Fork", 0);
 	else if (child1 == 0)
 		child_one(input, pipe_fd, envp);
 	child2 = fork();
 	if (child2 < 0)
-		error_exit("Fork");
+		error_exit("Fork", 0);
 	else if (child2 == 0)
 		child_two(input, pipe_fd, envp);
 	close(pipe_fd[0]);
@@ -61,6 +61,6 @@ int	main(int argc, char **argv, char **envp)
 	}
 	input = parse_input(argc, argv, envp);
 	if (pipe(pipe_fd) < 0)
-		error_exit("pipe");
+		error_exit("pipe", 0);
 	pipex(input, pipe_fd, envp);
 }
