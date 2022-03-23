@@ -6,12 +6,13 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 12:10:54 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/03/22 15:01:27 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/03/23 12:29:16 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 #include <unistd.h>
+#include <stdlib.h>
 
 static char	*check_cmd(char	*cmd, char	**path)
 {
@@ -21,7 +22,10 @@ static char	*check_cmd(char	*cmd, char	**path)
 
 	i = 0;
 	if (!path)
-		error_exit("environment");
+	{
+		write(2, "error: path not in environment\n", 32);
+		exit(EXIT_FAILURE);
+	}
 	if (access(cmd, X_OK) == 0)
 		return (ft_strdup(cmd));
 	while (path[i])
